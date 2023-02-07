@@ -72,85 +72,85 @@ class MainGUI(Frame):
         # the second row
         # 7
         img = PhotoImage(file="7.png")
-        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("("))
+        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("7"))
         button.image = img
         button.grid(row=2, column=0, sticky=N+S+E+W)
         # 8
         img = PhotoImage(file="8.png")
-        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("("))
+        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("8"))
         button.image = img
         button.grid(row=2, column=1, sticky=N+S+E+W)
         # 9
         img = PhotoImage(file="9.png")
-        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("("))
+        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("9"))
         button.image = img
         button.grid(row=2, column=2, sticky=N+S+E+W)
         # /
         img = PhotoImage(file="div.png")
-        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("("))
+        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("/"))
         button.image = img
         button.grid(row=2, column=3, sticky=N+S+E+W)
         # the third row
         # 4
         img = PhotoImage(file="4.png")
-        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("("))
+        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("4"))
         button.image = img
         button.grid(row=3, column=0, sticky=N+S+E+W)
         # 5
         img = PhotoImage(file="5.png")
-        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("("))
+        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("5"))
         button.image = img
         button.grid(row=3, column=1, sticky=N+S+E+W)
         # 6
         img = PhotoImage(file="6.png")
-        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("("))
+        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("6"))
         button.image = img
         button.grid(row=3, column=2, sticky=N+S+E+W)
         # *
         img = PhotoImage(file="mul.png")
-        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("("))
+        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("*"))
         button.image = img
         button.grid(row=3, column=3, sticky=N+S+E+W)
         # the fourth row
         # 1
         img = PhotoImage(file="1.png")
-        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("("))
+        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("1"))
         button.image = img
         button.grid(row=4, column=0, sticky=N+S+E+W)
         # 2
         img = PhotoImage(file="2.png")
-        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("("))
+        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("2"))
         button.image = img
         button.grid(row=4, column=1, sticky=N+S+E+W)
         # 3
         img = PhotoImage(file="3.png")
-        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("("))
+        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("3"))
         button.image = img
         button.grid(row=4, column=2, sticky=N+S+E+W)
         # -
         img = PhotoImage(file="sub.png")
-        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("("))
+        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("-"))
         button.image = img
         button.grid(row=4, column=3, sticky=N+S+E+W)
         # the fifth row
         # 0
         img = PhotoImage(file="0.png")
-        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("("))
+        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("0"))
         button.image = img
         button.grid(row=5, column=0, sticky=N+S+E+W)
         # .
         img = PhotoImage(file="dot.png")
-        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("("))
+        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("."))
         button.image = img
         button.grid(row=5, column=1, sticky=N+S+E+W)
         # =
         img = PhotoImage(file="eql.png")
-        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("("))
+        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("="))
         button.image = img
         button.grid(row=5, column=2, sticky=N+S+E+W)
         # +
         img = PhotoImage(file="add.png")
-        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("("))
+        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("+"))
         button.image = img
         button.grid(row=5, column=3, sticky=N+S+E+W)
 
