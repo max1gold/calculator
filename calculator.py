@@ -1,5 +1,5 @@
 #################################################################
-# Name: Julia Wilson
+# Name: Grant Cooper
 # Date: 2/1/2023
 # Description: RPi 03 - calculator
 #################################################################
@@ -11,9 +11,12 @@ class MainGUI(Frame):
         Frame.__init__(self, parent, bg="white")
         parent.attributes("-fullscreen", True)
         self.setupGUI()
+        self.state = False
     
     #sets up the GUI
     def setupGUI(self):
+        #add a normal state
+
         # the calculator uses the TexGyreAdventor font (see
         # https://www.fontsquirrel.com/fonts/tex-gyre-adventor)
         # on most Linux system, simply double-click the font files and install them on the RPi, copy them to /usr/local/share/fonts (with sudo):
@@ -21,7 +24,7 @@ class MainGUI(Frame):
         # then reboot
         # the display
         # right-align text in the display; and set its background to white, its height to 2 characters, and its font to 50 point TexGyreAdventor
-        self.display = Label(self, text="", anchor=E, bg="white", height=2, width=15, font=("TexGyreAdventor", 50))
+        self.display = Label(self, text="", anchor=E, bg="white", height=2, width=14, font=("TexGyreAdventor", 45))
         # put it in the top row, spanning across all four columns, and expand it on all four sides
         self.display.grid(row=0, column=0, columnspan=4, sticky=E+W+N+S)
 
@@ -65,9 +68,9 @@ class MainGUI(Frame):
         button.grid(row=1, column=2, sticky=N+S+E+W)
         # **
         img = PhotoImage(file="pow.png")
-        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("("))
+        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("**"))
         button.image = img
-        button.grid(row=1, column=3, sticky=N+S+E+W)
+        button.grid(row=6, column=3, sticky=N+S+E+W)
 
         # the second row
         # 7
@@ -144,15 +147,25 @@ class MainGUI(Frame):
         button.image = img
         button.grid(row=5, column=1, sticky=N+S+E+W)
         # =
-        img = PhotoImage(file="eql.png")
-        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("="))
+        img = PhotoImage(file="eql-wide.png")
+        button = Button(self, bg="#437bf9", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("="))
         button.image = img
-        button.grid(row=5, column=2, sticky=N+S+E+W)
+        button.grid(row=6, column=0, columnspan=2, sticky=N+S+E+W)
         # +
         img = PhotoImage(file="add.png")
         button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("+"))
         button.image = img
         button.grid(row=5, column=3, sticky=N+S+E+W)
+        # %
+        img = PhotoImage(file="mod.png")
+        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("%"))
+        button.image = img
+        button.grid(row=6, column=2, sticky=N+S+E+W)
+        # <-
+        img = PhotoImage(file="bak.png")
+        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("<-"))
+        button.image = img
+        button.grid(row=6, column=3, sticky=N+S+E+W)
 
 
 
@@ -161,11 +174,12 @@ class MainGUI(Frame):
     #processes button presses
     def process(self, button):
         #AC clears the display
-        if(button == "AC"):
+        if (button == "AC"):
             #clear the display
             self.display["text"] = ""
-        # = stars an evaluation of whatever is on the display
-        elif(button == "="):
+        elif (button == "<-"):
+            self.display["text"] = self.display["text"][:-1]
+        elif (button == "="):
             #get the expression in the display
             expr = self.display["text"]
             #the evaluation may return an error
@@ -173,13 +187,24 @@ class MainGUI(Frame):
                 #evaluate the expression
                 result = eval(expr)
                 #store the result to the display
-                self.display["text"] = str(result)
-            #handle if an error occurs duing evaluation
+                if len(str(result)) > 14:
+                    self.display["text"] = str(result)[:11] + "..."
+                else:
+                    self.display["text"] = str(result)
+
+                self.state = True
             except:
                 #note the error in the display
                 self.display["text"] = "ERROR"
-        #otherwise, just tack on the appropriate operand/operator
+                self.state = True
+
+        elif len(self.display["text"]) > 14:
+            self.display["text"] += ''
         else:
+            if (self.state):
+                self.display["text"] = ""
+                self.state = False
+
             self.display["text"] += button
         print("Button {} pressed!".format(button))
 
