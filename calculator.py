@@ -55,12 +55,12 @@ class MainGUI(Frame):
         # the same is done for the rest of the buttons
         # )
         img = PhotoImage(file="rpr.png")
-        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("("))
+        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process(")"))
         button.image = img
         button.grid(row=1, column=1, sticky=N+S+E+W)
         # AC
         img = PhotoImage(file="clr.png")
-        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("("))
+        button = Button(self, bg="white", image=img, borderwidth=0, highlightthickness=0, activebackground="white", command=lambda: self.process("AC"))
         button.image = img
         button.grid(row=1, column=2, sticky=N+S+E+W)
         # **
